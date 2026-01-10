@@ -47,6 +47,22 @@
                     <jvmTarget>17</jvmTarget>
                 </configuration>
             </plugin>
+
+            <!-- Generate Javadoc jar for Kotlin sources using Dokka (required by Central) -->
+            <plugin>
+                <groupId>org.jetbrains.dokka</groupId>
+                <artifactId>dokka-maven-plugin</artifactId>
+                <version>1.9.20</version>
+                <executions>
+                    <execution>
+                        <id>javadocJar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>javadocJar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
