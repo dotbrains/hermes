@@ -103,9 +103,21 @@ jobs:
       - name: Create and push tag
         run: |
           TAG="v${{ steps.get-version.outputs.current-version }}"
-          git tag -a "$TAG" -m "Release $TAG"
-          git push origin "$TAG"
-          echo "✓ Created and pushed tag: $TAG"
+          
+          # Check if tag already exists locally
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "⚠ Tag $TAG already exists locally"
+          else
+            git tag -a "$TAG" -m "Release $TAG"
+            echo "✓ Created tag: $TAG"
+          fi
+          
+          # Try to push the tag (will fail if it exists remotely)
+          if git push origin "$TAG" 2>/dev/null; then
+            echo "✓ Pushed tag: $TAG"
+          else
+            echo "⚠ Tag $TAG already exists on remote (this is fine for re-runs)"
+          fi
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
