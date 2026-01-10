@@ -33,14 +33,14 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
     <dependency>
         <groupId>io.github.dotbrains</groupId>
         <artifactId>hermes-api</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </dependency>
 
     <!-- Annotation processor (for @InjectLogger) -->
     <dependency>
         <groupId>io.github.dotbrains</groupId>
         <artifactId>hermes-processor</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>provided</scope>
     </dependency>
 
@@ -48,7 +48,7 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
     <dependency>
         <groupId>io.github.dotbrains</groupId>
         <artifactId>hermes-core</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>runtime</scope>
     </dependency>
 </dependencies>
@@ -63,7 +63,7 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
                     <path>
                         <groupId>io.github.dotbrains</groupId>
                         <artifactId>hermes-processor</artifactId>
-                        <version>1.0.0-SNAPSHOT</version>
+                        <version>1.0.0</version>
                     </path>
                 </annotationProcessorPaths>
             </configuration>
@@ -76,9 +76,9 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
 
 ```gradle
 dependencies {
-    implementation 'io.github.dotbrains:hermes-api:1.0.0-SNAPSHOT'
-    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0-SNAPSHOT'
-    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0-SNAPSHOT'
+    implementation 'io.github.dotbrains:hermes-api:1.0.0'
+    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
+    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
 }
 ```
 
@@ -390,7 +390,7 @@ Add the Spring Boot starter:
 <dependency>
     <groupId>io.github.dotbrains</groupId>
     <artifactId>hermes-spring-boot-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 

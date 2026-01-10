@@ -12,18 +12,18 @@ Add to your `pom.xml`:
     <dependency>
         <groupId>io.github.dotbrains</groupId>
         <artifactId>hermes-api</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </dependency>
     <dependency>
         <groupId>io.github.dotbrains</groupId>
         <artifactId>hermes-processor</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>io.github.dotbrains</groupId>
         <artifactId>hermes-core</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <scope>runtime</scope>
     </dependency>
 </dependencies>
@@ -38,7 +38,7 @@ Add to your `pom.xml`:
                     <path>
                         <groupId>io.github.dotbrains</groupId>
                         <artifactId>hermes-processor</artifactId>
-                        <version>1.0.0-SNAPSHOT</version>
+                        <version>1.0.0</version>
                     </path>
                 </annotationProcessorPaths>
             </configuration>
@@ -53,9 +53,9 @@ Add to your `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'io.github.dotbrains:hermes-api:1.0.0-SNAPSHOT'
-    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0-SNAPSHOT'
-    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0-SNAPSHOT'
+    implementation 'io.github.dotbrains:hermes-api:1.0.0'
+    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
+    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
 }
 ```
 
@@ -104,7 +104,7 @@ If you're using Spring Boot, add the starter dependency:
 <dependency>
     <groupId>io.github.dotbrains</groupId>
     <artifactId>hermes-spring-boot-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
