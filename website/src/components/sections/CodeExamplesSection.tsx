@@ -60,33 +60,33 @@ hermes:
   ];
 
   return (
-    <section id="code-examples" className="py-20 bg-dark-gray/50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-cream mb-4">
+    <section id="code-examples" className="py-12 sm:py-16 lg:py-20 bg-dark-gray/50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-3 sm:mb-4">
             Code Examples
           </h2>
-          <p className="text-slate-gray text-lg max-w-3xl mx-auto">
+          <p className="text-cream/70 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto">
             See how easy it is to use Hermes in your Java or Kotlin projects
           </p>
         </div>
         <div className="bg-dark-slate border border-hermes-blue/30 rounded-xl overflow-hidden">
-          <div className="flex border-b border-hermes-blue/30">
+          <div className="flex border-b border-hermes-blue/30 overflow-x-auto">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 px-6 py-4 text-sm font-medium transition-colors ${
+                className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap ${
                   activeTab === tab.key
                     ? 'bg-dark-gray/50 text-hermes-blue border-b-2 border-hermes-blue'
-                    : 'text-slate-gray hover:text-cream hover:bg-dark-gray/30'
+                    : 'text-cream/70 hover:text-cream hover:bg-dark-gray/30'
                 }`}
               >
                 {tab.label}
               </button>
             ))}
           </div>
-          <div className="p-6">
+          <div className="p-4 sm:p-6 overflow-x-auto">
             <CodeBlock
               code={examples[activeTab]}
               language={tabs.find((t) => t.key === activeTab)?.language}

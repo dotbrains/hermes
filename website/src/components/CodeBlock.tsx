@@ -47,28 +47,34 @@ export function CodeBlock({ code, language = 'java', showLineNumbers = false, cl
       </div>
       <div className="bg-dark-slate border border-hermes-blue/30 rounded-lg overflow-hidden">
         {language && (
-          <div className="flex items-center justify-between px-4 py-2 bg-dark-gray/50 border-b border-hermes-blue/30">
+          <div className="flex items-center justify-between px-3 sm:px-4 py-2 bg-dark-gray/50 border-b border-hermes-blue/30">
             <span className="text-xs font-mono text-slate-gray uppercase tracking-wide">{language}</span>
           </div>
         )}
-        <SyntaxHighlighter
-          language={language}
-          style={vscDarkPlus}
-          showLineNumbers={showLineNumbers}
-          customStyle={{
-            margin: 0,
-            padding: '1rem',
-            background: 'transparent',
-            fontSize: '0.875rem',
-          }}
+        <div className="overflow-x-auto">
+          <SyntaxHighlighter
+            language={language}
+            style={vscDarkPlus}
+            showLineNumbers={showLineNumbers}
+            customStyle={{
+              margin: 0,
+              padding: '0.75rem',
+              background: 'transparent',
+              fontSize: '0.75rem',
+              minWidth: '100%',
+            }}
           codeTagProps={{
             style: {
               fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+              whiteSpace: 'pre',
             },
           }}
+          wrapLines={false}
+          wrapLongLines={false}
         >
           {code}
         </SyntaxHighlighter>
+        </div>
       </div>
     </div>
   );

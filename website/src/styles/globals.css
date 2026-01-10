@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  html,
   body {
     @apply bg-[#1a1d29] text-[#fefdfb];
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   ::selection {

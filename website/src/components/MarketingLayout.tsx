@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, ExternalLink, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 interface MarketingNavProps {
@@ -9,43 +9,48 @@ interface MarketingNavProps {
 }
 
 export function MarketingNav({ transparent = false }: MarketingNavProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
   };
 
   return (
-    <nav className={`${transparent ? 'absolute inset-x-0 top-0' : 'bg-dark-slate/95 border-b border-hermes-blue/30'} relative z-50 px-6 py-4 backdrop-blur-md`}>
+    <nav className={`fixed left-0 right-0 top-0 z-50 w-full px-4 sm:px-6 py-4 backdrop-blur-xl transition-colors ${transparent ? 'bg-dark-slate/80' : 'bg-dark-slate border-b border-hermes-blue/30'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="/" className="hover:opacity-80 transition-opacity flex items-center gap-3">
-          <Image src="/favicon.svg" alt="Hermes" width={32} height={32} className="w-8 h-8" />
-          <span className="text-xl font-bold text-cream">Hermes</span>
+        <a href="/" className="hover:opacity-80 transition-opacity flex items-center gap-2 sm:gap-3">
+          <Image src="/favicon.svg" alt="Hermes" width={32} height={32} className="w-7 h-7 sm:w-8 sm:h-8" />
+          <span className="text-lg sm:text-xl font-bold text-cream">Hermes</span>
         </a>
-        <div className="flex items-center gap-8">
+        
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-8">
           <a
             href="/#features"
             onClick={(e) => handleSmoothScroll(e, '#features')}
-            className="text-slate-gray hover:text-cream transition-colors text-sm font-medium"
+            className="text-cream/80 hover:text-cream transition-colors text-sm font-medium"
           >
             Features
           </a>
           <a
             href="/#how-it-works"
             onClick={(e) => handleSmoothScroll(e, '#how-it-works')}
-            className="text-slate-gray hover:text-cream transition-colors text-sm font-medium"
+            className="text-cream/80 hover:text-cream transition-colors text-sm font-medium"
           >
             How It Works
           </a>
           <a
             href="/#use-cases"
             onClick={(e) => handleSmoothScroll(e, '#use-cases')}
-            className="text-slate-gray hover:text-cream transition-colors text-sm font-medium"
+            className="text-cream/80 hover:text-cream transition-colors text-sm font-medium"
           >
             Use Cases
           </a>
           <a
             href="https://dotbrains.github.io/hermes"
-            className="text-slate-gray hover:text-cream transition-colors text-sm font-medium inline-flex items-center gap-1.5"
+            className="text-cream/80 hover:text-cream transition-colors text-sm font-medium inline-flex items-center gap-1.5"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -71,7 +76,72 @@ export function MarketingNav({ transparent = false }: MarketingNavProps) {
             </a>
           </div>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden p-2 text-cream hover:text-hermes-blue transition-colors"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed top-[72px] left-0 right-0 bg-dark-slate border-b border-hermes-blue/30 backdrop-blur-xl shadow-xl z-40">
+          <div className="px-4 py-6 space-y-4">
+            <a
+              href="/#features"
+              onClick={(e) => handleSmoothScroll(e, '#features')}
+              className="block text-cream/80 hover:text-cream transition-colors text-base font-medium py-2"
+            >
+              Features
+            </a>
+            <a
+              href="/#how-it-works"
+              onClick={(e) => handleSmoothScroll(e, '#how-it-works')}
+              className="block text-cream/80 hover:text-cream transition-colors text-base font-medium py-2"
+            >
+              How It Works
+            </a>
+            <a
+              href="/#use-cases"
+              onClick={(e) => handleSmoothScroll(e, '#use-cases')}
+              className="block text-cream/80 hover:text-cream transition-colors text-base font-medium py-2"
+            >
+              Use Cases
+            </a>
+            <a
+              href="https://dotbrains.github.io/hermes"
+              className="block text-cream/80 hover:text-cream transition-colors text-base font-medium py-2 inline-flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Docs
+              <ExternalLink className="w-4 h-4" />
+            </a>
+            <div className="pt-4 space-y-3 border-t border-hermes-blue/20">
+              <a
+                href="https://github.com/dotbrains/hermes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-dark-gray hover:bg-dark-slate border border-hermes-blue text-cream rounded-lg transition-colors text-sm font-medium w-full"
+              >
+                <Github className="w-4 h-4" />
+                <span>Star on GitHub</span>
+              </a>
+              <a
+                href="/#quick-start"
+                onClick={(e) => handleSmoothScroll(e, '#quick-start')}
+                className="flex items-center justify-center bg-gradient-to-r from-hermes-blue to-hermes-purple hover:from-hermes-purple hover:to-hermes-cyan text-white px-6 py-3 rounded-lg shadow-lg shadow-hermes-blue/30 text-sm font-semibold transition-all w-full"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
@@ -83,21 +153,21 @@ export function MarketingFooter() {
   };
 
   return (
-    <footer className="bg-dark-slate border-t border-hermes-blue/30 py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-dark-slate border-t border-hermes-blue/30 py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image src="/favicon.svg" alt="Hermes" width={32} height={32} className="w-8 h-8" />
               <span className="text-xl font-bold text-cream">Hermes</span>
             </div>
-            <p className="text-slate-gray text-sm leading-relaxed mb-4">
+            <p className="text-cream/60 text-sm leading-relaxed mb-4">
               Zero-boilerplate Java logging library with compile-time annotation processing. Open source and free to use.
             </p>
             <div className="flex items-center gap-3">
               <a
                 href="https://github.com/dotbrains/hermes"
-                className="text-slate-gray hover:text-cream transition-colors"
+                className="text-cream/60 hover:text-cream transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -113,7 +183,7 @@ export function MarketingFooter() {
                 <a
                   href="/#features"
                   onClick={(e) => handleSmoothScroll(e, '#features')}
-                  className="text-slate-gray hover:text-cream text-sm transition-colors inline-block cursor-pointer"
+                  className="text-cream/70 hover:text-cream text-sm transition-colors inline-block cursor-pointer"
                 >
                   Features
                 </a>
@@ -122,7 +192,7 @@ export function MarketingFooter() {
                 <a
                   href="/#how-it-works"
                   onClick={(e) => handleSmoothScroll(e, '#how-it-works')}
-                  className="text-slate-gray hover:text-cream text-sm transition-colors inline-block cursor-pointer"
+                  className="text-cream/70 hover:text-cream text-sm transition-colors inline-block cursor-pointer"
                 >
                   How It Works
                 </a>
@@ -131,7 +201,7 @@ export function MarketingFooter() {
                 <a
                   href="/#use-cases"
                   onClick={(e) => handleSmoothScroll(e, '#use-cases')}
-                  className="text-slate-gray hover:text-cream text-sm transition-colors inline-block cursor-pointer"
+                  className="text-cream/70 hover:text-cream text-sm transition-colors inline-block cursor-pointer"
                 >
                   Use Cases
                 </a>
@@ -140,7 +210,7 @@ export function MarketingFooter() {
                 <a
                   href="/#quick-start"
                   onClick={(e) => handleSmoothScroll(e, '#quick-start')}
-                  className="text-slate-gray hover:text-cream text-sm transition-colors inline-block cursor-pointer"
+                  className="text-cream/70 hover:text-cream text-sm transition-colors inline-block cursor-pointer"
                 >
                   Quick Start
                 </a>
@@ -151,19 +221,19 @@ export function MarketingFooter() {
             <h4 className="text-cream font-semibold mb-4 text-sm uppercase tracking-wider">Resources</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://dotbrains.github.io/hermes" className="text-slate-gray hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://dotbrains.github.io/hermes" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Documentation
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://dotbrains.github.io/hermes/architecture/overview" className="text-slate-gray hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://dotbrains.github.io/hermes/architecture/overview" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Architecture
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/dotbrains/hermes/tree/master/hermes-examples" className="text-slate-gray hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dotbrains/hermes/tree/master/hermes-examples" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Examples
                   <ExternalLink className="w-3 h-3" />
                 </a>
@@ -174,19 +244,19 @@ export function MarketingFooter() {
             <h4 className="text-cream font-semibold mb-4 text-sm uppercase tracking-wider">Community</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://github.com/dotbrains/hermes" className="text-slate-gray hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dotbrains/hermes" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   GitHub Repository
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/dotbrains/hermes/issues" className="text-slate-gray hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dotbrains/hermes/issues" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Report Issues
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/dotbrains/hermes/discussions" className="text-slate-gray hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dotbrains/hermes/discussions" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Discussions
                   <ExternalLink className="w-3 h-3" />
                 </a>
@@ -195,10 +265,10 @@ export function MarketingFooter() {
           </div>
         </div>
         <div className="pt-8 border-t border-hermes-blue/30 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-gray text-sm">
+          <p className="text-cream/60 text-sm">
             © {new Date().getFullYear()} Hermes. All rights reserved.
           </p>
-          <p className="text-slate-gray/70 text-xs">
+          <p className="text-cream/50 text-xs">
             Open source software licensed under MIT
           </p>
         </div>
