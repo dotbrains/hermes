@@ -1,5 +1,9 @@
 # Hermes ⚡
 
+
+<img src="website/public/og-image.svg" alt="Hermes Logo" width="600" />
+
+
 ![CI Build & Test](https://github.com/dotbrains/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
 ![Code Quality](https://github.com/dotbrains/hermes/workflows/Code%20Quality/badge.svg)
 ![Annotation Processor](https://github.com/dotbrains/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
