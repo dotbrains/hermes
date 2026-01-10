@@ -1,5 +1,7 @@
 # Hermes ⚡
 
+<img src="assets/og-image.svg" alt="Hermes Logo" width="600" />
+
 ![CI Build & Test](https://github.com/dotbrains/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
 ![Code Quality](https://github.com/dotbrains/hermes/workflows/Code%20Quality/badge.svg)
 ![Annotation Processor](https://github.com/dotbrains/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
@@ -33,7 +35,7 @@ public class UserService extends UserServiceHermesLogger {
 
     public void createUser(String username) {
         log.info("Creating user: {}", username);
-        
+
         try {
             saveToDatabase(username);
             log.info("User {} created successfully", username);
