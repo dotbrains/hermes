@@ -1,0 +1,91 @@
+name: Publish to Maven Central
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    name: Publish to Maven Central
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+      
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      
+      - name: Import GPG key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        run: |
+          echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --batch --import
+          gpg --list-secret-keys --keyid-format LONG
+      
+      - name: Configure Maven settings
+        uses: s4u/maven-settings-action@v2.8.0
+        with:
+          servers: |
+            [{
+              "id": "ossrh",
+              "username": "${{ secrets.OSSRH_USERNAME }}",
+              "password": "${{ secrets.OSSRH_TOKEN }}"
+            }]
+      
+      - name: Get version from pom.xml
+        id: get-version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Publishing version: $VERSION"
+      
+      - name: Verify version is not SNAPSHOT for release
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          VERSION="${{ steps.get-version.outputs.version }}"
+          if [[ "$VERSION" == *-SNAPSHOT ]]; then
+            echo "Error: Cannot publish SNAPSHOT version from a tag"
+            exit 1
+          fi
+      
+      - name: Build modules
+        run: |
+          echo "Building without examples module"
+          mvn clean install -DskipTests -pl '!hermes-examples' -B
+        env:
+          MAVEN_OPTS: -Xmx1024m
+      
+      - name: Publish to Maven Central
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          MAVEN_OPTS: -Xmx1024m
+        run: |
+          echo "Publishing to Maven Central (excluding examples)"
+          mvn deploy -Prelease -DskipTests -pl '!hermes-examples' -B \
+            -Dgpg.passphrase="${GPG_PASSPHRASE}"
+      
+      - name: Publish status
+        run: |
+          echo "✓ Successfully published to Maven Central"
+          echo "Version: ${{ steps.get-version.outputs.version }}"
+          echo "Artifacts will be available at: https://central.sonatype.com/artifact/io.github.dotbrains/hermes-parent/${{ steps.get-version.outputs.version }}"
+          echo ""
+          echo "Note: It may take 15-30 minutes for artifacts to sync to Maven Central"

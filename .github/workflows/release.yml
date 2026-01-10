@@ -1,0 +1,128 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Release type (major, minor, patch)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+      
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      
+      - name: Get current version
+        id: get-version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "current-version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $VERSION"
+      
+      - name: Build all modules
+        run: mvn clean install -DskipTests -B -V
+        env:
+          MAVEN_OPTS: -Xmx1024m
+      
+      - name: Create release directory
+        run: mkdir -p release-artifacts
+      
+      - name: Collect JAR artifacts
+        run: |
+          find . -name "*.jar" -path "*/target/*" \
+            ! -name "*-sources.jar" \
+            ! -name "*-javadoc.jar" \
+            ! -name "*-tests.jar" \
+            -exec cp {} release-artifacts/ \;
+          ls -lh release-artifacts/
+      
+      - name: Generate release notes
+        id: release-notes
+        run: |
+          cat > release-notes.md << 'EOF'
+          ## Hermes Logging Library Release
+          
+          ### Version
+          ${{ steps.get-version.outputs.current-version }}
+          
+          ### Modules Included
+          - hermes-api: Core interfaces and annotations
+          - hermes-core: High-performance implementation
+          - hermes-processor: @InjectLogger annotation processor
+          - hermes-spring-boot-starter: Spring Boot auto-configuration
+          - hermes-kotlin: Kotlin DSL extensions
+          - hermes-examples: Example applications
+          
+          ### Requirements
+          - Java 17 or higher
+          - Maven 3.8+
+          
+          ### Installation
+          See [README.md](README.md) for installation and usage instructions.
+          
+          ### Changes
+          See the commit history for detailed changes.
+          EOF
+          cat release-notes.md
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.get-version.outputs.current-version }}
+          name: Release v${{ steps.get-version.outputs.current-version }}
+          body_path: release-notes.md
+          files: |
+            release-artifacts/*.jar
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-jars-${{ steps.get-version.outputs.current-version }}
+          path: release-artifacts/*.jar
+          retention-days: 30
+      
+      - name: Trigger Maven Central publishing
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'maven-publish.yml',
+              ref: 'master'
+            });
+            console.log('✓ Triggered Maven Central publishing workflow')

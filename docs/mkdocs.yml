@@ -1,0 +1,106 @@
+site_name: Hermes Documentation
+site_description: High-performance logging library for Java with excellent developer experience
+site_author: dotbrains
+site_url: https://dotbrains.github.io/hermes
+
+repo_name: dotbrains/hermes
+repo_url: https://github.com/dotbrains/hermes
+edit_uri: edit/master/docs/src/
+
+theme:
+  name: material
+  palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    # Light mode
+    - scheme: default
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dotbrains/hermes
+  version:
+    provider: mike
+
+docs_dir: src
+site_dir: ../site
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quick Start: getting-started/quick-start.md
+    - Installation: getting-started/installation.md
+    - Basic Usage: getting-started/basic-usage.md
+  - User Guide:
+    - Logger Injection: user-guide/logger-injection.md
+    - Log Levels: user-guide/log-levels.md
+    - Parameterized Logging: user-guide/parameterized-logging.md
+    - MDC: user-guide/mdc.md
+    - Markers: user-guide/markers.md
+  - Advanced:
+    - Appenders: advanced/appenders.md
+    - Layouts: advanced/layouts.md
+    - Async Logging: advanced/async-logging.md
+    - JSON Logging: advanced/json-logging.md
+    - Logstash Integration: advanced/logstash.md
+  - Integrations:
+    - Spring Boot: integrations/spring-boot.md
+    - Kotlin DSL: integrations/kotlin.md
+    - GraalVM Native Image: integrations/graalvm.md
+  - Architecture:
+    - Overview: architecture/overview.md
+    - Module Structure: architecture/modules.md
+    - Performance: architecture/performance.md
+  - API Reference:
+    - Core API: api/core.md
+    - Appenders: api/appenders.md
+    - Layouts: api/layouts.md

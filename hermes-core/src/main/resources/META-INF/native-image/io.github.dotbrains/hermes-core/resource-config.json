@@ -1,0 +1,9 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "META-INF/services/io.github.dotbrains.hermes.LoggerProvider"
+      }
+    ]
+  }
+}
