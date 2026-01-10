@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1d29;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1117;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:0.2" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#4a90e2;stop-opacity:0.2" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Decorative grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="150" x2="1200" y2="150" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="480" x2="1200" y2="480" stroke="#fff" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="630" stroke="#fff" stroke-width="1"/>
+  </g>
+
+  <!-- Accent bar at top -->
+  <rect width="1200" height="4" fill="url(#accentGradient)"/>
+
+  <!-- Logo symbol (same as favicon) -->
+  <g transform="translate(100, 200)">
+    <rect width="100" height="100" rx="20" fill="url(#logoGradient)"/>
+    <path d="M50 25 L65 40 L65 75 L50 90 L35 75 L35 40 Z" fill="white" opacity="0.9"/>
+    <circle cx="50" cy="50" r="8" fill="#4a90e2"/>
+  </g>
+
+  <!-- Main heading -->
+  <text x="240" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="72" font-weight="700" fill="white" letter-spacing="-1">
+    Hermes
+  </text>
+
+  <!-- Subtitle -->
+  <text x="240" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="32" font-weight="400" fill="#94a3b8" letter-spacing="0">
+    Zero-Boilerplate Java Logging
+  </text>
+
+  <!-- Feature highlights -->
+  <g transform="translate(240, 360)">
+    <!-- Badge 1 -->
+    <rect x="0" y="0" width="180" height="40" rx="20" fill="#1e293b" stroke="#4a90e2" stroke-width="1.5"/>
+    <text x="90" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+          font-size="15" font-weight="600" fill="#4a90e2" text-anchor="middle">
+      Java 17+
+    </text>
+
+    <!-- Badge 2 -->
+    <rect x="195" y="0" width="210" height="40" rx="20" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="300" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+          font-size="15" font-weight="600" fill="#7c3aed" text-anchor="middle">
+      High Performance
+    </text>
+
+    <!-- Badge 3 -->
+    <rect x="0" y="55" width="210" height="40" rx="20" fill="#1e293b" stroke="#4a90e2" stroke-width="1.5"/>
+    <text x="105" y="81" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+          font-size="15" font-weight="600" fill="#4a90e2" text-anchor="middle">
+      Spring Boot Ready
+    </text>
+  </g>
+
+  <!-- Code snippet decoration -->
+  <g transform="translate(700, 160)">
+    <rect width="400" height="260" rx="12" fill="#0f1117" stroke="#2d3748" stroke-width="2"/>
+
+    <!-- Code header -->
+    <rect width="400" height="40" rx="12" fill="#1e293b"/>
+    <circle cx="20" cy="20" r="5" fill="#ef4444" opacity="0.8"/>
+    <circle cx="40" cy="20" r="5" fill="#f59e0b" opacity="0.8"/>
+    <circle cx="60" cy="20" r="5" fill="#10b981" opacity="0.8"/>
+
+    <!-- Code content -->
+    <text x="20" y="75" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#7c3aed" font-weight="500">@InjectLogger</text>
+    <text x="20" y="100" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#e2e8f0">public class</text>
+    <text x="140" y="100" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#4a90e2"> UserService</text>
+    <text x="20" y="125" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#e2e8f0">    extends</text>
+    <text x="110" y="125" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#94a3b8"> UserService...</text>
+
+    <text x="20" y="160" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#64748b">  // Zero reflection</text>
+    <text x="20" y="185" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#64748b">  // Zero boilerplate</text>
+    <text x="20" y="210" font-family="'SF Mono', Monaco, 'Courier New', monospace"
+          font-size="15" fill="#64748b">  // Just fast logging</text>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect y="626" width="1200" height="4" fill="url(#accentGradient)"/>
+</svg>
