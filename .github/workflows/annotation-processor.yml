@@ -7,12 +7,14 @@ on:
       - 'hermes-processor/**'
       - 'hermes-api/**'
       - 'hermes-examples/**'
+      - '.github/workflows/annotation-processor.yml'
   pull_request:
     branches: [ master, main, develop ]
     paths:
       - 'hermes-processor/**'
       - 'hermes-api/**'
       - 'hermes-examples/**'
+      - '.github/workflows/annotation-processor.yml'
 
 jobs:
   validate-processor:
