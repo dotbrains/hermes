@@ -62,6 +62,7 @@ The project is split into six Maven modules with clear separation of concerns:
 - **Key files**: `Logger`, `LoggerFactory`, `@InjectLogger`, `MDC`, `Marker`, `LogLevel`
 - **Dependencies**: None (pure API)
 - **Design pattern**: Uses ServiceLoader to discover implementations at runtime
+- **Package**: `io.github.dotbrains.hermes`
 
 ### hermes-core
 - **Purpose**: High-performance implementation of the logging engine
@@ -75,21 +76,25 @@ The project is split into six Maven modules with clear separation of concerns:
   - Early exit optimization (checks log level before formatting)
   - ThreadLocal StringBuilder for zero-allocation formatting
   - LMAX Disruptor for async logging (lock-free ring buffer)
+- **Package**: `io.github.dotbrains.hermes.core`
 
 ### hermes-processor
 - **Purpose**: Compile-time annotation processor for @InjectLogger
 - **How it works**: Generates a base class `<ClassName>HermesLogger` with a `protected Logger log` field
 - **Processing**: Runs during Maven's compile phase via `maven-compiler-plugin`
+- **Package**: `io.github.dotbrains.hermes.processor`
 
 ### hermes-spring-boot-starter
 - **Purpose**: Spring Boot auto-configuration
 - **Configuration**: Binds to `application.yml` under `hermes.*` properties
 - **Components**: `HermesAutoConfiguration`, `HermesProperties`, `HermesLoggingHealthIndicator`
+- **Package**: `io.github.dotbrains.hermes.spring`
 
 ### hermes-kotlin
 - **Purpose**: Idiomatic Kotlin DSL extensions
 - **Features**: Extension properties, lazy evaluation, MDC DSL, structured logging builders
 - **Requires**: Java 17+ (uses Kotlin 2.1.10)
+- **Package**: `io.github.dotbrains.hermes.kotlin`
 
 ### hermes-examples
 - **Purpose**: Working examples and demonstrations
@@ -143,21 +148,21 @@ Appenders and layouts are configured programmatically in application code. See R
 ## Common Development Patterns
 
 ### Adding a New Appender
-1. Create class implementing `io.github.dotbrains.core.appender.Appender` interface
+1. Create class implementing `io.github.dotbrains.hermes.core.appender.Appender` interface
 2. Implement `append(LogEvent)`, `start()`, `stop()`, `isStarted()` methods
 3. Add lifecycle management (start/stop) in constructor
-4. Location: `hermes-core/src/main/java/io/hermes/core/appender/`
+4. Location: `hermes-core/src/main/java/io/github/dotbrains/hermes/core/appender/`
 
 ### Adding a New Layout
-1. Create class implementing `io.github.dotbrains.core.layout.Layout` interface
+1. Create class implementing `io.github.dotbrains.hermes.core.layout.Layout` interface
 2. Implement `format(LogEvent)` method to return formatted string
-3. Location: `hermes-core/src/main/java/io/hermes/core/layout/`
+3. Location: `hermes-core/src/main/java/io/github/dotbrains/hermes/core/layout/`
 
 ### Modifying Log Levels
-Log levels are defined in `hermes-api/src/main/java/io/hermes/LogLevel.java` enum. Changes here affect the entire API contract.
+Log levels are defined in `hermes-api/src/main/java/io/github/dotbrains/hermes/LogLevel.java` enum. Changes here affect the entire API contract.
 
 ### Working with MDC
-MDC is thread-local storage managed in `hermes-api/src/main/java/io/hermes/MDC.java`. Changes must maintain thread-safety.
+MDC is thread-local storage managed in `hermes-api/src/main/java/io/github/dotbrains/hermes/MDC.java`. Changes must maintain thread-safety.
 
 ## Testing
 
@@ -231,13 +236,13 @@ if (log.isDebugEnabled()) {
 
 ## File Locations Reference
 
-- API interfaces: `hermes-api/src/main/java/io/hermes/`
-- Core implementation: `hermes-core/src/main/java/io/hermes/core/`
-- Appenders: `hermes-core/src/main/java/io/hermes/core/appender/`
-- Layouts: `hermes-core/src/main/java/io/hermes/core/layout/`
-- Annotation processor: `hermes-processor/src/main/java/io/hermes/processor/`
-- Spring Boot: `hermes-spring-boot-starter/src/main/java/io/hermes/spring/`
-- Kotlin DSL: `hermes-kotlin/src/main/kotlin/io/hermes/kotlin/`
+- API interfaces: `hermes-api/src/main/java/io/github/dotbrains/hermes/`
+- Core implementation: `hermes-core/src/main/java/io/github/dotbrains/hermes/core/`
+- Appenders: `hermes-core/src/main/java/io/github/dotbrains/hermes/core/appender/`
+- Layouts: `hermes-core/src/main/java/io/github/dotbrains/hermes/core/layout/`
+- Annotation processor: `hermes-processor/src/main/java/io/github/dotbrains/hermes/processor/`
+- Spring Boot: `hermes-spring-boot-starter/src/main/java/io/github/dotbrains/hermes/spring/`
+- Kotlin DSL: `hermes-kotlin/src/main/kotlin/io/github/dotbrains/hermes/kotlin/`
 
 ## Requirements
 
