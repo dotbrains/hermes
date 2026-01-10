@@ -12,15 +12,15 @@ theme:
   palette:
     # Dark mode (default)
     - scheme: slate
-      primary: black
-      accent: indigo
+      primary: indigo
+      accent: deep purple
       toggle:
         icon: material/brightness-7
         name: Switch to light mode
     # Light mode
     - scheme: default
-      primary: black
-      accent: indigo
+      primary: indigo
+      accent: deep purple
       toggle:
         icon: material/brightness-4
         name: Switch to dark mode
