@@ -7,6 +7,13 @@
 ![Annotation Processor](https://github.com/dotbrains/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.dotbrains/hermes-parent.svg?label=Maven%20Central)
 
+![Java](https://img.shields.io/badge/-Java%2017-007396?style=flat-square&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![Kotlin](https://img.shields.io/badge/-Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
+![GraalVM](https://img.shields.io/badge/-GraalVM-232F3E?style=flat-square&logo=oracle&logoColor=white)
+![LMAX Disruptor](https://img.shields.io/badge/-LMAX%20Disruptor-FF6B6B?style=flat-square&logo=apache&logoColor=white)
+
 **High-performance logging library for Java with excellent developer experience**
 
 Inspired by SLF4J, Hermes is a modern logging library that focuses on performance and developer productivity. Named after the Greek messenger god, Hermes delivers your log messages swiftly and reliably.
