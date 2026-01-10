@@ -95,6 +95,18 @@ jobs:
           EOF
           cat release-notes.md
       
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+      
+      - name: Create and push tag
+        run: |
+          TAG="v${{ steps.get-version.outputs.current-version }}"
+          git tag -a "$TAG" -m "Release $TAG"
+          git push origin "$TAG"
+          echo "✓ Created and pushed tag: $TAG"
+      
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
@@ -115,14 +127,9 @@ jobs:
           path: release-artifacts/*.jar
           retention-days: 30
       
-      - name: Trigger Maven Central publishing
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'maven-publish.yml',
-              ref: 'master'
-            });
-            console.log('✓ Triggered Maven Central publishing workflow')
+      - name: Maven Central publishing note
+        run: |
+          echo "✓ Release created successfully"
+          echo "✓ Tag v${{ steps.get-version.outputs.current-version }} pushed"
+          echo "→ Maven Central publishing will be triggered automatically by the tag"
+          echo "→ Monitor at: https://github.com/${{ github.repository }}/actions/workflows/maven-publish.yml"
