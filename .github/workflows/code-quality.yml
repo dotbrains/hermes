@@ -3,8 +3,18 @@ name: Code Quality
 on:
   push:
     branches: [ master, main, develop ]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+    paths:
+      - '.github/workflows/code-quality.yml'
   pull_request:
     branches: [ master, main, develop ]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+    paths:
+      - '.github/workflows/code-quality.yml'
 
 jobs:
   quality:
