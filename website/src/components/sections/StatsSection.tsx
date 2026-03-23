@@ -15,7 +15,7 @@ export function StatsSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
           <div>
             <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1 sm:mb-2">Open Source</div>
-            <div className="text-cream/60 text-sm sm:text-base">MIT License</div>
+            <div className="text-cream/60 text-sm sm:text-base">PolyForm Shield 1.0.0</div>
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1 sm:mb-2">6</div>

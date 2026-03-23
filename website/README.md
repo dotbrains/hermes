@@ -110,7 +110,7 @@ The website is a single-page marketing site with the following sections:
 - **Gradient Background** - Blue/purple/cyan theme
 - **Key Stats** - Java 17+, 10M+ logs/sec, Zero reflection
 - **Dual CTAs** - Links to docs and GitHub
-- **Open Source Badge** - MIT license prominent
+- **Open Source Badge** - PolyForm Shield 1.0.0 license prominent
 
 ### Interactive Components
 - **CodeBlock** - Syntax highlighting with copy button
