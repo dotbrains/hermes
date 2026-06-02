@@ -16,11 +16,16 @@ on:
       - 'hermes-examples/**'
       - '.github/workflows/annotation-processor.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-processor:
     name: Validate @InjectLogger Annotation Processing
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 20
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
