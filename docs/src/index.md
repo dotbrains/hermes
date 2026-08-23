@@ -5,7 +5,7 @@
 ![CI Build & Test](https://github.com/smeltery/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
 ![Code Quality](https://github.com/smeltery/hermes/workflows/Code%20Quality/badge.svg)
 ![Annotation Processor](https://github.com/smeltery/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
-![Maven Central](https://img.shields.io/maven-central/v/io.github.dotbrains/hermes-parent.svg?label=Maven%20Central)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.smeltery/hermes-parent.svg?label=Maven%20Central)
 
 ![Java](https://img.shields.io/badge/-Java%2017-007396?style=flat-square&logo=openjdk&logoColor=white)
 ![Maven](https://img.shields.io/badge/-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
@@ -35,7 +35,7 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
 ## Quick Example
 
 ```java
-import io.github.dotbrains.InjectLogger;
+import io.github.smeltery.InjectLogger;
 
 @InjectLogger
 public class UserService extends UserServiceHermesLogger {

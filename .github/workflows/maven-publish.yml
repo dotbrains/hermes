@@ -98,6 +98,6 @@ jobs:
         run: |
           echo "✓ Successfully published to Maven Central"
           echo "Version: ${{ steps.get-version.outputs.version }}"
-          echo "Artifacts will be available at: https://central.sonatype.com/artifact/io.github.dotbrains/hermes-parent/${{ steps.get-version.outputs.version }}"
+          echo "Artifacts will be available at: https://central.sonatype.com/artifact/io.github.smeltery/hermes-parent/${{ steps.get-version.outputs.version }}"
           echo ""
           echo "Note: It may take 15-30 minutes for artifacts to sync to Maven Central"

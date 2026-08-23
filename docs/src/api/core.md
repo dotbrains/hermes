@@ -9,7 +9,7 @@ Main logging interface with level-specific methods.
 ### Package
 
 ```java
-io.github.dotbrains.Logger
+io.github.smeltery.Logger
 ```
 
 ### Methods
@@ -130,7 +130,7 @@ Static factory for obtaining Logger instances.
 ### Package
 
 ```java
-io.github.dotbrains.LoggerFactory
+io.github.smeltery.LoggerFactory
 ```
 
 ### Methods
@@ -157,7 +157,7 @@ Enumeration of log levels.
 ### Package
 
 ```java
-io.github.dotbrains.LogLevel
+io.github.smeltery.LogLevel
 ```
 
 ### Values
@@ -193,7 +193,7 @@ Thread-local key-value storage for contextual logging.
 ### Package
 
 ```java
-io.github.dotbrains.MDC
+io.github.smeltery.MDC
 ```
 
 ### Methods
@@ -236,7 +236,7 @@ Marker for categorizing log events.
 ### Package
 
 ```java
-io.github.dotbrains.Marker
+io.github.smeltery.Marker
 ```
 
 ### Methods
@@ -273,7 +273,7 @@ Factory for obtaining Marker instances.
 ### Package
 
 ```java
-io.github.dotbrains.MarkerFactory
+io.github.smeltery.MarkerFactory
 ```
 
 ### Methods
@@ -304,7 +304,7 @@ Annotation for compile-time logger injection.
 ### Package
 
 ```java
-io.github.dotbrains.InjectLogger
+io.github.smeltery.InjectLogger
 ```
 
 ### Target
@@ -344,7 +344,7 @@ Service Provider Interface for custom logger implementations.
 ### Package
 
 ```java
-io.github.dotbrains.spi.LoggerProvider
+io.github.smeltery.spi.LoggerProvider
 ```
 
 ### Methods
@@ -366,7 +366,7 @@ public class CustomLoggerProvider implements LoggerProvider {
 }
 ```
 
-Register in `META-INF/services/io.github.dotbrains.spi.LoggerProvider`:
+Register in `META-INF/services/io.github.smeltery.spi.LoggerProvider`:
 
 ```
 com.example.CustomLoggerProvider

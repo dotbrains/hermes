@@ -9,7 +9,7 @@ There are two ways to create a logger in Hermes:
 ### Using @InjectLogger (Recommended)
 
 ```java
-import io.github.dotbrains.InjectLogger;
+import io.github.smeltery.InjectLogger;
 
 @InjectLogger
 public class UserService extends UserServiceHermesLogger {
@@ -25,8 +25,8 @@ The annotation processor generates a base class with the logger field, eliminati
 ### Manual Logger Creation
 
 ```java
-import io.github.dotbrains.Logger;
-import io.github.dotbrains.LoggerFactory;
+import io.github.smeltery.Logger;
+import io.github.smeltery.LoggerFactory;
 
 public class UserService {
     private static final Logger log = LoggerFactory.getLogger(UserService.class);

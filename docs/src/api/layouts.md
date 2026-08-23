@@ -9,7 +9,7 @@ Base interface for all layouts.
 ### Package
 
 ```java
-io.github.dotbrains.core.layout.Layout
+io.github.smeltery.core.layout.Layout
 ```
 
 ### Methods
@@ -39,7 +39,7 @@ PatternLayout(String pattern)
 | `%-5p` | Left-padded level (5 chars) | `INFO ` |
 | `%t` | Thread name | `http-nio-8080-exec-1` |
 | `%thread` | Same as `%t` | |
-| `%c` | Logger name | `io.github.dotbrains.UserService` |
+| `%c` | Logger name | `io.github.smeltery.UserService` |
 | `%logger` | Same as `%c` | |
 | `%c{n}` | Abbreviated logger name | `i.g.d.UserService` |
 | `%logger{n}` | Same as `%c{n}` | |
@@ -105,7 +105,7 @@ PatternLayout layout = new PatternLayout(
 
 Output:
 ```
-2024-01-10 10:30:45.123 [http-nio-8080-exec-1] INFO  io.github.dotbrains.UserService - User logged in
+2024-01-10 10:30:45.123 [http-nio-8080-exec-1] INFO  io.github.smeltery.UserService - User logged in
 ```
 
 #### With MDC
@@ -118,7 +118,7 @@ PatternLayout layout = new PatternLayout(
 
 Output:
 ```
-2024-01-10 10:30:45.123 [req-12345] [user-789] INFO  io.github.dotbrains.UserService - User logged in
+2024-01-10 10:30:45.123 [req-12345] [user-789] INFO  io.github.smeltery.UserService - User logged in
 ```
 
 #### Compact
@@ -177,7 +177,7 @@ void setPrettyPrint(boolean prettyPrint)
 #### Compact (default)
 
 ```json
-{"timestamp":"2024-01-10T10:30:45.123Z","level":"INFO","thread":"main","logger":"io.github.dotbrains.UserService","message":"User logged in","mdc":{"requestId":"req-12345"}}
+{"timestamp":"2024-01-10T10:30:45.123Z","level":"INFO","thread":"main","logger":"io.github.smeltery.UserService","message":"User logged in","mdc":{"requestId":"req-12345"}}
 ```
 
 #### Pretty Print
@@ -187,7 +187,7 @@ void setPrettyPrint(boolean prettyPrint)
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "INFO",
   "thread": "main",
-  "logger": "io.github.dotbrains.UserService",
+  "logger": "io.github.smeltery.UserService",
   "message": "User logged in",
   "mdc": {
     "requestId": "req-12345",
@@ -202,14 +202,14 @@ void setPrettyPrint(boolean prettyPrint)
 {
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "ERROR",
-  "logger": "io.github.dotbrains.OrderService",
+  "logger": "io.github.smeltery.OrderService",
   "message": "Order processing failed",
   "exception": {
     "class": "java.lang.IllegalStateException",
     "message": "Invalid order state",
     "stackTrace": [
-      "io.github.dotbrains.OrderService.process(OrderService.java:45)",
-      "io.github.dotbrains.OrderController.createOrder(OrderController.java:78)"
+      "io.github.smeltery.OrderService.process(OrderService.java:45)",
+      "io.github.smeltery.OrderController.createOrder(OrderController.java:78)"
     ]
   }
 }
@@ -294,7 +294,7 @@ public class CsvLayout implements Layout {
 
 Output:
 ```csv
-"2024-01-10 10:30:45.123","INFO","io.github.dotbrains.UserService","main","User logged in"
+"2024-01-10 10:30:45.123","INFO","io.github.smeltery.UserService","main","User logged in"
 ```
 
 ### XML Layout Example

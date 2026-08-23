@@ -7,12 +7,12 @@ export function QuickStartSection() {
   const [buildTool, setBuildTool] = useState<'maven' | 'gradle'>('maven');
 
   const mavenExample = `<dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-api</artifactId>
     <version>1.0.0</version>
 </dependency>
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-core</artifactId>
     <version>1.0.0</version>
     <scope>runtime</scope>
@@ -27,7 +27,7 @@ export function QuickStartSection() {
             <configuration>
                 <annotationProcessorPaths>
                     <path>
-                        <groupId>io.github.dotbrains</groupId>
+                        <groupId>io.github.smeltery</groupId>
                         <artifactId>hermes-processor</artifactId>
                         <version>1.0.0</version>
                     </path>
@@ -38,9 +38,9 @@ export function QuickStartSection() {
 </build>`;
 
   const gradleExample = `dependencies {
-    implementation 'io.github.dotbrains:hermes-api:1.0.0'
-    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
-    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
+    implementation 'io.github.smeltery:hermes-api:1.0.0'
+    runtimeOnly 'io.github.smeltery:hermes-core:1.0.0'
+    annotationProcessor 'io.github.smeltery:hermes-processor:1.0.0'
 }`;
 
   return (

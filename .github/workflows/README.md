@@ -182,7 +182,7 @@ Add these to your README.md to show workflow status:
 ![Code Quality](https://github.com/smeltery/hermes/workflows/Code%20Quality/badge.svg)
 ![Annotation Processor](https://github.com/smeltery/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
 ![Deploy Documentation](https://github.com/smeltery/hermes/workflows/Deploy%20Documentation/badge.svg)
-![Maven Central](https://img.shields.io/maven-central/v/io.github.dotbrains/hermes-parent.svg?label=Maven%20Central)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.smeltery/hermes-parent.svg?label=Maven%20Central)
 ```
 
 ## Customization

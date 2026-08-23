@@ -10,18 +10,18 @@ Add to your `pom.xml`:
 ```xml
 <dependencies>
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-api</artifactId>
         <version>1.0.0</version>
     </dependency>
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-processor</artifactId>
         <version>1.0.0</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-core</artifactId>
         <version>1.0.0</version>
         <scope>runtime</scope>
@@ -36,7 +36,7 @@ Add to your `pom.xml`:
             <configuration>
                 <annotationProcessorPaths>
                     <path>
-                        <groupId>io.github.dotbrains</groupId>
+                        <groupId>io.github.smeltery</groupId>
                         <artifactId>hermes-processor</artifactId>
                         <version>1.0.0</version>
                     </path>
@@ -53,9 +53,9 @@ Add to your `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'io.github.dotbrains:hermes-api:1.0.0'
-    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
-    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
+    implementation 'io.github.smeltery:hermes-api:1.0.0'
+    annotationProcessor 'io.github.smeltery:hermes-processor:1.0.0'
+    runtimeOnly 'io.github.smeltery:hermes-core:1.0.0'
 }
 ```
 
@@ -66,7 +66,7 @@ Create a new Java class with the `@InjectLogger` annotation:
 ```java
 package com.example.myapp;
 
-import io.github.dotbrains.InjectLogger;
+import io.github.smeltery.InjectLogger;
 
 @InjectLogger
 public class HelloHermes extends HelloHermesHermesLogger {
@@ -102,7 +102,7 @@ If you're using Spring Boot, add the starter dependency:
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-spring-boot-starter</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -129,8 +129,8 @@ If you prefer not to use annotation processing:
 ```java
 package com.example.myapp;
 
-import io.github.dotbrains.Logger;
-import io.github.dotbrains.LoggerFactory;
+import io.github.smeltery.Logger;
+import io.github.smeltery.LoggerFactory;
 
 public class HelloHermes {
     private static final Logger log = LoggerFactory.getLogger(HelloHermes.class);
@@ -176,7 +176,7 @@ log.debug(() -> "Result: " + expensiveComputation());
 
 ### MDC (Mapped Diagnostic Context)
 ```java
-import io.github.dotbrains.MDC;
+import io.github.smeltery.MDC;
 
 MDC.put("userId", userId);
 MDC.put("requestId", requestId);

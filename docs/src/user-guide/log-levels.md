@@ -45,7 +45,7 @@ hermes:
   level:
     root: INFO
     packages:
-      io.github.dotbrains: DEBUG
+      io.github.smeltery: DEBUG
       com.example.service: TRACE
 ```
 

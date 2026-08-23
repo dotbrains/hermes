@@ -25,7 +25,7 @@ hermes:
   level:
     root: INFO
     packages:
-      io.github.dotbrains: DEBUG
+      io.github.smeltery: DEBUG
       com.example: TRACE
   pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
   async:

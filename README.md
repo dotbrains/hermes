@@ -9,7 +9,7 @@
 ![CI Build & Test](https://github.com/smeltery/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
 ![Code Quality](https://github.com/smeltery/hermes/workflows/Code%20Quality/badge.svg)
 ![Annotation Processor](https://github.com/smeltery/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
-![Maven Central](https://img.shields.io/maven-central/v/io.github.dotbrains/hermes-parent.svg?label=Maven%20Central)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.smeltery/hermes-parent.svg?label=Maven%20Central)
 
 ![Java](https://img.shields.io/badge/-Java%2017-007396?style=flat-square&logo=openjdk&logoColor=white)
 ![Maven](https://img.shields.io/badge/-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
@@ -44,14 +44,14 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
 <dependencies>
     <!-- Core API -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-api</artifactId>
         <version>1.0.0</version>
     </dependency>
 
     <!-- Annotation processor (for @InjectLogger) -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-processor</artifactId>
         <version>1.0.0</version>
         <scope>provided</scope>
@@ -59,7 +59,7 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
 
     <!-- Core implementation -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-core</artifactId>
         <version>1.0.0</version>
         <scope>runtime</scope>
@@ -74,7 +74,7 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
             <configuration>
                 <annotationProcessorPaths>
                     <path>
-                        <groupId>io.github.dotbrains</groupId>
+                        <groupId>io.github.smeltery</groupId>
                         <artifactId>hermes-processor</artifactId>
                         <version>1.0.0</version>
                     </path>
@@ -89,9 +89,9 @@ Inspired by SLF4J, Hermes is a modern logging library that focuses on performanc
 
 ```gradle
 dependencies {
-    implementation 'io.github.dotbrains:hermes-api:1.0.0'
-    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
-    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
+    implementation 'io.github.smeltery:hermes-api:1.0.0'
+    annotationProcessor 'io.github.smeltery:hermes-processor:1.0.0'
+    runtimeOnly 'io.github.smeltery:hermes-core:1.0.0'
 }
 ```
 
@@ -100,7 +100,7 @@ dependencies {
 ### Basic Usage with @InjectLogger
 
 ```java
-import io.github.dotbrains.InjectLogger;
+import io.github.smeltery.InjectLogger;
 
 @InjectLogger
 public class UserService extends UserServiceHermesLogger {
@@ -126,8 +126,8 @@ The `@InjectLogger` annotation automatically generates a logger field named `log
 If you prefer not to use annotation processing:
 
 ```java
-import io.github.dotbrains.Logger;
-import io.github.dotbrains.LoggerFactory;
+import io.github.smeltery.Logger;
+import io.github.smeltery.LoggerFactory;
 
 public class UserService {
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
@@ -178,7 +178,7 @@ log.debug(() -> "Expensive computation result: " + expensiveOperation());
 Add contextual information to logs using MDC:
 
 ```java
-import io.github.dotbrains.MDC;
+import io.github.smeltery.MDC;
 
 public void processRequest(String requestId, String userId) {
     MDC.put("requestId", requestId);
@@ -198,8 +198,8 @@ public void processRequest(String requestId, String userId) {
 Use markers to categorize and filter logs:
 
 ```java
-import io.github.dotbrains.Marker;
-import io.github.dotbrains.MarkerFactory;
+import io.github.smeltery.Marker;
+import io.github.smeltery.MarkerFactory;
 
 Marker securityMarker = MarkerFactory.getMarker("SECURITY");
 log.warn(securityMarker, "Failed login attempt for user: {}", username);
@@ -213,8 +213,8 @@ Hermes supports multiple appender types:
 
 #### Console Appender
 ```java
-import io.github.dotbrains.core.appender.ConsoleAppender;
-import io.github.dotbrains.core.layout.PatternLayout;
+import io.github.smeltery.core.appender.ConsoleAppender;
+import io.github.smeltery.core.layout.PatternLayout;
 
 ConsoleAppender appender = new ConsoleAppender(
     "console",
@@ -225,7 +225,7 @@ appender.start();
 
 #### File Appender
 ```java
-import io.github.dotbrains.core.appender.FileAppender;
+import io.github.smeltery.core.appender.FileAppender;
 
 FileAppender appender = new FileAppender("file", "logs/app.log");
 appender.start();
@@ -233,7 +233,7 @@ appender.start();
 
 #### Rolling File Appender
 ```java
-import io.github.dotbrains.core.appender.RollingFileAppender;
+import io.github.smeltery.core.appender.RollingFileAppender;
 
 RollingFileAppender appender = new RollingFileAppender(
     "rolling",
@@ -246,7 +246,7 @@ appender.start();
 
 #### Async Appender (High-Performance)
 ```java
-import io.github.dotbrains.core.appender.AsyncAppender;
+import io.github.smeltery.core.appender.AsyncAppender;
 import java.util.List;
 
 // Wrap any appenders with async processing using LMAX Disruptor
@@ -263,8 +263,8 @@ asyncAppender.start();
 For log aggregation systems, use JSON layout:
 
 ```java
-import io.github.dotbrains.core.layout.JsonLayout;
-import io.github.dotbrains.core.appender.FileAppender;
+import io.github.smeltery.core.layout.JsonLayout;
+import io.github.smeltery.core.appender.FileAppender;
 
 // Compact JSON (one line per log)
 JsonLayout jsonLayout = new JsonLayout();
@@ -295,7 +295,7 @@ Example JSON output:
 Send logs directly to Logstash for ELK stack integration:
 
 ```java
-import io.github.dotbrains.core.appender.LogstashAppender;
+import io.github.smeltery.core.appender.LogstashAppender;
 
 LogstashAppender logstash = new LogstashAppender(
     "logstash",
@@ -320,7 +320,7 @@ input {
 For Kotlin projects, use the idiomatic Kotlin DSL (requires Java 17+):
 
 ```kotlin
-import io.github.dotbrains.kotlin.*
+import io.github.smeltery.kotlin.*
 
 class UserService {
     private val log = UserService::class.logger
@@ -365,7 +365,7 @@ hermes:
   level:
     root: INFO
     packages:
-      io.github.dotbrains: DEBUG
+      io.github.smeltery: DEBUG
       com.myapp: TRACE
 
   # Log pattern (used by all appenders)
@@ -384,8 +384,8 @@ hermes:
 Configuration is primarily done through `application.yaml` for Spring Boot applications. For programmatic control of log levels, use the Logger API's level checking methods:
 
 ```java
-import io.github.dotbrains.Logger;
-import io.github.dotbrains.LoggerFactory;
+import io.github.smeltery.Logger;
+import io.github.smeltery.LoggerFactory;
 
 Logger log = LoggerFactory.getLogger(MyClass.class);
 
@@ -401,7 +401,7 @@ Add the Spring Boot starter:
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-spring-boot-starter</artifactId>
     <version>1.0.0</version>
 </dependency>

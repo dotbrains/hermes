@@ -17,14 +17,14 @@ Add the following to your `pom.xml`:
 <dependencies>
     <!-- Core API -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-api</artifactId>
         <version>1.0.0</version>
     </dependency>
 
     <!-- Annotation processor (for @InjectLogger) -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-processor</artifactId>
         <version>1.0.0</version>
         <scope>provided</scope>
@@ -32,7 +32,7 @@ Add the following to your `pom.xml`:
 
     <!-- Core implementation -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-core</artifactId>
         <version>1.0.0</version>
         <scope>runtime</scope>
@@ -50,7 +50,7 @@ Add the following to your `pom.xml`:
                 <target>17</target>
                 <annotationProcessorPaths>
                     <path>
-                        <groupId>io.github.dotbrains</groupId>
+                        <groupId>io.github.smeltery</groupId>
                         <artifactId>hermes-processor</artifactId>
                         <version>1.0.0</version>
                     </path>
@@ -67,7 +67,7 @@ For Spring Boot applications, use the starter:
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-spring-boot-starter</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -81,7 +81,7 @@ For Kotlin projects, add the Kotlin DSL module:
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-kotlin</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -95,9 +95,9 @@ Add the following to your `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'io.github.dotbrains:hermes-api:1.0.0'
-    annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
-    runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
+    implementation 'io.github.smeltery:hermes-api:1.0.0'
+    annotationProcessor 'io.github.smeltery:hermes-processor:1.0.0'
+    runtimeOnly 'io.github.smeltery:hermes-core:1.0.0'
 }
 
 java {
@@ -110,9 +110,9 @@ java {
 
 ```kotlin
 dependencies {
-    implementation("io.github.dotbrains:hermes-api:1.0.0")
-    annotationProcessor("io.github.dotbrains:hermes-processor:1.0.0")
-    runtimeOnly("io.github.dotbrains:hermes-core:1.0.0")
+    implementation("io.github.smeltery:hermes-api:1.0.0")
+    annotationProcessor("io.github.smeltery:hermes-processor:1.0.0")
+    runtimeOnly("io.github.smeltery:hermes-core:1.0.0")
 }
 
 java {
@@ -125,7 +125,7 @@ java {
 
 ```gradle
 dependencies {
-    implementation 'io.github.dotbrains:hermes-spring-boot-starter:1.0.0'
+    implementation 'io.github.smeltery:hermes-spring-boot-starter:1.0.0'
 }
 ```
 
@@ -151,7 +151,7 @@ Understanding the module structure:
 Create a simple test class:
 
 ```java
-import io.github.dotbrains.InjectLogger;
+import io.github.smeltery.InjectLogger;
 
 @InjectLogger
 public class InstallationTest extends InstallationTestHermesLogger {

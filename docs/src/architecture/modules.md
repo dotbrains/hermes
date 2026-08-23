@@ -35,9 +35,9 @@ None - pure API module
 ### Module Info
 
 ```java
-module io.github.dotbrains.hermes.api {
-    exports io.github.dotbrains;
-    uses io.github.dotbrains.spi.LoggerProvider;
+module io.github.smeltery.hermes.api {
+    exports io.github.smeltery;
+    uses io.github.smeltery.spi.LoggerProvider;
 }
 ```
 
@@ -75,16 +75,16 @@ module io.github.dotbrains.hermes.api {
 ### Module Info
 
 ```java
-module io.github.dotbrains.hermes.core {
-    requires io.github.dotbrains.hermes.api;
+module io.github.smeltery.hermes.core {
+    requires io.github.smeltery.hermes.api;
     requires static com.lmax.disruptor;
 
-    exports io.github.dotbrains.core;
-    exports io.github.dotbrains.core.appender;
-    exports io.github.dotbrains.core.layout;
+    exports io.github.smeltery.core;
+    exports io.github.smeltery.core.appender;
+    exports io.github.smeltery.core.layout;
 
-    provides io.github.dotbrains.spi.LoggerProvider
-        with io.github.dotbrains.core.HermesLoggerProvider;
+    provides io.github.smeltery.spi.LoggerProvider
+        with io.github.smeltery.core.HermesLoggerProvider;
 }
 ```
 
@@ -120,7 +120,7 @@ Configured in `maven-compiler-plugin`:
     <configuration>
         <annotationProcessorPaths>
             <path>
-                <groupId>io.github.dotbrains</groupId>
+                <groupId>io.github.smeltery</groupId>
                 <artifactId>hermes-processor</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </path>
@@ -243,14 +243,14 @@ graph TD
 <dependencies>
     <!-- API for compilation -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-api</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
 
     <!-- Processor at compile-time only -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-processor</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <scope>provided</scope>
@@ -258,7 +258,7 @@ graph TD
 
     <!-- Implementation at runtime -->
     <dependency>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-core</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <scope>runtime</scope>
@@ -270,7 +270,7 @@ graph TD
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-spring-boot-starter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
@@ -282,7 +282,7 @@ graph TD
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <scope>provided</scope>
@@ -296,7 +296,7 @@ Let the application choose the implementation.
 All modules share the same version number managed in the parent POM:
 
 ```xml
-<groupId>io.github.dotbrains</groupId>
+<groupId>io.github.smeltery</groupId>
 <artifactId>hermes-parent</artifactId>
 <version>1.0.0-SNAPSHOT</version>
 <packaging>pom</packaging>

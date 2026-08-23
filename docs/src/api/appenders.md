@@ -9,7 +9,7 @@ Base interface all appenders must implement.
 ### Package
 
 ```java
-io.github.dotbrains.core.appender.Appender
+io.github.smeltery.core.appender.Appender
 ```
 
 ### Methods

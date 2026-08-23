@@ -13,13 +13,13 @@ Before you can publish to Maven Central, you need to complete these one-time set
 3. Complete your profile registration
 4. Navigate to **Namespaces** and register your namespace:
    - Click "Add Namespace"
-   - Enter `io.github.dotbrains` as the namespace
+   - Enter `io.github.smeltery` as the namespace
    - Choose verification method:
      - **GitHub** (recommended): Verify via repository ownership
      - **DNS**: Add TXT record to your domain
 
 **For GitHub verification:**
-- You'll need to create a public repository: `https://github.com/dotbrains/io.github.dotbrains`
+- You'll need to create a public repository: `https://github.com/smeltery/io.github.smeltery`
 - Or use an existing repository and add the verification token as described in the portal
 
 **Verification is instant** once you complete the required steps (no waiting for ticket approval).
@@ -191,15 +191,15 @@ git push origin master
 1. Go to https://s01.oss.sonatype.org/
 2. Log in with your credentials
 3. Click **Staging Repositories** (left sidebar)
-4. Look for `io.github.dotbrains` repository
+4. Look for `io.github.smeltery` repository
 5. View activity log to see publication status
 
 ### Check Maven Central
 
 After 15-30 minutes, verify on Maven Central:
 
-- Central Portal: https://central.sonatype.com/artifact/io.github.dotbrains/hermes-parent
-- Maven Central Search: https://search.maven.org/search?q=g:io.github.dotbrains
+- Central Portal: https://central.sonatype.com/artifact/io.github.smeltery/hermes-parent
+- Maven Central Search: https://search.maven.org/search?q=g:io.github.smeltery
 
 ### Test in a Project
 
@@ -207,7 +207,7 @@ Create a test Maven project:
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-api</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -252,7 +252,7 @@ If successful, the artifacts are available!
 
 ### Version Already Exists
 
-**Error:** `Repository does not allow updating artifact: io.github.dotbrains:hermes-api:1.0.0`
+**Error:** `Repository does not allow updating artifact: io.github.smeltery:hermes-api:1.0.0`
 
 **Solution:**
 - Maven Central releases are immutable

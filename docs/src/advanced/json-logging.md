@@ -11,7 +11,7 @@ JsonLayout formats log events as JSON documents with consistent structure:
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "INFO",
   "thread": "http-nio-8080-exec-1",
-  "logger": "io.github.dotbrains.UserService",
+  "logger": "io.github.smeltery.UserService",
   "message": "User alice logged in",
   "mdc": {
     "requestId": "req-12345",
@@ -79,7 +79,7 @@ layout.setIncludeMdc(false);
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "INFO",
   "thread": "main",
-  "logger": "io.github.dotbrains.UserService",
+  "logger": "io.github.smeltery.UserService",
   "message": "Processing user registration"
 }
 ```
@@ -91,7 +91,7 @@ layout.setIncludeMdc(false);
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "INFO",
   "thread": "http-nio-8080-exec-1",
-  "logger": "io.github.dotbrains.OrderService",
+  "logger": "io.github.smeltery.OrderService",
   "message": "Order created successfully",
   "mdc": {
     "requestId": "req-12345",
@@ -108,7 +108,7 @@ layout.setIncludeMdc(false);
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "WARN",
   "thread": "http-nio-8080-exec-2",
-  "logger": "io.github.dotbrains.AuthService",
+  "logger": "io.github.smeltery.AuthService",
   "message": "Failed login attempt",
   "marker": "SECURITY",
   "mdc": {
@@ -126,14 +126,14 @@ layout.setIncludeMdc(false);
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "ERROR",
   "thread": "http-nio-8080-exec-3",
-  "logger": "io.github.dotbrains.PaymentService",
+  "logger": "io.github.smeltery.PaymentService",
   "message": "Payment processing failed",
   "exception": {
     "class": "java.lang.IllegalStateException",
     "message": "Payment gateway timeout",
     "stackTrace": [
-      "io.github.dotbrains.PaymentService.processPayment(PaymentService.java:45)",
-      "io.github.dotbrains.OrderController.checkout(OrderController.java:78)",
+      "io.github.smeltery.PaymentService.processPayment(PaymentService.java:45)",
+      "io.github.smeltery.OrderController.checkout(OrderController.java:78)",
       "jdk.internal.reflect.GeneratedMethodAccessor42.invoke(Unknown Source)"
     ],
     "cause": {
@@ -383,7 +383,7 @@ Output:
 {
   "timestamp": "2024-01-10T10:30:45.123Z",
   "level": "INFO",
-  "logger": "io.github.dotbrains.OrderController",
+  "logger": "io.github.smeltery.OrderController",
   "message": "Order created",
   "mdc": {
     "service": "order-service",

@@ -12,14 +12,14 @@ Get up and running with Hermes in just a few minutes.
     <dependencies>
         <!-- Core API -->
         <dependency>
-            <groupId>io.github.dotbrains</groupId>
+            <groupId>io.github.smeltery</groupId>
             <artifactId>hermes-api</artifactId>
             <version>1.0.0</version>
         </dependency>
 
         <!-- Annotation processor (for @InjectLogger) -->
         <dependency>
-            <groupId>io.github.dotbrains</groupId>
+            <groupId>io.github.smeltery</groupId>
             <artifactId>hermes-processor</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>
@@ -27,7 +27,7 @@ Get up and running with Hermes in just a few minutes.
 
         <!-- Core implementation -->
         <dependency>
-            <groupId>io.github.dotbrains</groupId>
+            <groupId>io.github.smeltery</groupId>
             <artifactId>hermes-core</artifactId>
             <version>1.0.0</version>
             <scope>runtime</scope>
@@ -42,7 +42,7 @@ Get up and running with Hermes in just a few minutes.
                 <configuration>
                     <annotationProcessorPaths>
                         <path>
-                            <groupId>io.github.dotbrains</groupId>
+                            <groupId>io.github.smeltery</groupId>
                             <artifactId>hermes-processor</artifactId>
                             <version>1.0.0</version>
                         </path>
@@ -59,9 +59,9 @@ Get up and running with Hermes in just a few minutes.
 
     ```gradle
     dependencies {
-        implementation 'io.github.dotbrains:hermes-api:1.0.0'
-        annotationProcessor 'io.github.dotbrains:hermes-processor:1.0.0'
-        runtimeOnly 'io.github.dotbrains:hermes-core:1.0.0'
+        implementation 'io.github.smeltery:hermes-api:1.0.0'
+        annotationProcessor 'io.github.smeltery:hermes-processor:1.0.0'
+        runtimeOnly 'io.github.smeltery:hermes-core:1.0.0'
     }
     ```
 
@@ -72,7 +72,7 @@ Get up and running with Hermes in just a few minutes.
 The easiest way to use Hermes is with the `@InjectLogger` annotation:
 
 ```java
-import io.github.dotbrains.InjectLogger;
+import io.github.smeltery.InjectLogger;
 
 @InjectLogger
 public class UserService extends UserServiceHermesLogger {
@@ -98,8 +98,8 @@ public class UserService extends UserServiceHermesLogger {
 If you prefer not to use annotation processing:
 
 ```java
-import io.github.dotbrains.Logger;
-import io.github.dotbrains.LoggerFactory;
+import io.github.smeltery.Logger;
+import io.github.smeltery.LoggerFactory;
 
 public class UserService {
     private static final Logger log = LoggerFactory.getLogger(UserService.class);

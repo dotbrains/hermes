@@ -8,7 +8,7 @@ Hermes provides idiomatic Kotlin extensions for a more natural logging experienc
 
 ```xml
 <dependency>
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-kotlin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
@@ -18,7 +18,7 @@ Hermes provides idiomatic Kotlin extensions for a more natural logging experienc
 
 ```kotlin
 dependencies {
-    implementation("io.github.dotbrains:hermes-kotlin:1.0.0-SNAPSHOT")
+    implementation("io.github.smeltery:hermes-kotlin:1.0.0-SNAPSHOT")
 }
 ```
 
@@ -32,7 +32,7 @@ dependencies {
 ### Extension Property
 
 ```kotlin
-import io.github.dotbrains.kotlin.logger
+import io.github.smeltery.kotlin.logger
 
 class UserService {
     private val log = UserService::class.logger
@@ -46,7 +46,7 @@ class UserService {
 ### Inline Logger
 
 ```kotlin
-import io.github.dotbrains.kotlin.logger
+import io.github.smeltery.kotlin.logger
 
 class OrderService {
     fun processOrder(orderId: Long) {
@@ -84,7 +84,7 @@ log.debug { "Result: ${expensiveOperation()}" }
 Automatic MDC cleanup with `withMDC`:
 
 ```kotlin
-import io.github.dotbrains.kotlin.withMDC
+import io.github.smeltery.kotlin.withMDC
 
 fun processRequest(requestId: String, userId: String) {
     withMDC("requestId" to requestId, "userId" to userId) {
@@ -97,7 +97,7 @@ fun processRequest(requestId: String, userId: String) {
 ### MDC Builder
 
 ```kotlin
-import io.github.dotbrains.kotlin.mdc
+import io.github.smeltery.kotlin.mdc
 
 fun handleRequest(request: Request) {
     mdc {
@@ -116,7 +116,7 @@ fun handleRequest(request: Request) {
 MDC propagation in coroutines:
 
 ```kotlin
-import io.github.dotbrains.kotlin.withMDC
+import io.github.smeltery.kotlin.withMDC
 import kotlinx.coroutines.launch
 
 suspend fun processAsync(requestId: String) {
@@ -199,7 +199,7 @@ try {
 ### Creating Markers
 
 ```kotlin
-import io.github.dotbrains.kotlin.marker
+import io.github.smeltery.kotlin.marker
 
 val SECURITY = marker("SECURITY")
 val AUDIT = marker("AUDIT")
@@ -281,7 +281,7 @@ fun observeOrders(): Flow<Order> = flow {
 ### Timing Operations
 
 ```kotlin
-import io.github.dotbrains.kotlin.logTime
+import io.github.smeltery.kotlin.logTime
 
 val result = log.logTime("Database query") {
     database.query(sql)
@@ -292,7 +292,7 @@ val result = log.logTime("Database query") {
 ### Conditional Execution
 
 ```kotlin
-import io.github.dotbrains.kotlin.ifDebug
+import io.github.smeltery.kotlin.ifDebug
 
 log.ifDebug {
     // Only executed if DEBUG is enabled
@@ -363,7 +363,7 @@ fun logEvent(fields: LogFields) {
 ## Complete Example
 
 ```kotlin
-import io.github.dotbrains.kotlin.*
+import io.github.smeltery.kotlin.*
 import kotlinx.coroutines.*
 
 class OrderService {

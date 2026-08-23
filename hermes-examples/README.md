@@ -15,7 +15,7 @@ Demonstrates core Hermes logging features:
 
 **Run:**
 ```fish
-mvn clean compile exec:java -Dexec.mainClass="io.github.dotbrains.hermes.examples.Demo" -pl hermes-examples
+mvn clean compile exec:java -Dexec.mainClass="io.github.smeltery.hermes.examples.Demo" -pl hermes-examples
 ```
 
 ### 2. Annotation Processor Demo (`AnnotationProcessorDemo.java`)
@@ -28,13 +28,13 @@ Demonstrates zero-boilerplate logging using the `@InjectLogger` annotation:
 
 **Run:**
 ```fish
-mvn clean compile exec:java -Dexec.mainClass="io.github.dotbrains.hermes.examples.AnnotationProcessorDemo" -pl hermes-examples
+mvn clean compile exec:java -Dexec.mainClass="io.github.smeltery.hermes.examples.AnnotationProcessorDemo" -pl hermes-examples
 ```
 
 **View generated code:**
 ```fish
-ls -la hermes-examples/target/generated-sources/annotations/io/github/dotbrains/hermes/examples/
-cat hermes-examples/target/generated-sources/annotations/io/github/dotbrains/hermes/examples/AnnotationProcessorDemoHermesLogger.java
+ls -la hermes-examples/target/generated-sources/annotations/io/github/smeltery/hermes/examples/
+cat hermes-examples/target/generated-sources/annotations/io/github/smeltery/hermes/examples/AnnotationProcessorDemoHermesLogger.java
 ```
 
 ## Building the Examples
@@ -44,7 +44,7 @@ cat hermes-examples/target/generated-sources/annotations/io/github/dotbrains/her
 mvn clean compile -pl hermes-examples -am
 
 # Build and run a specific example
-mvn clean compile exec:java -Dexec.mainClass="io.github.dotbrains.hermes.examples.Demo" -pl hermes-examples
+mvn clean compile exec:java -Dexec.mainClass="io.github.smeltery.hermes.examples.Demo" -pl hermes-examples
 ```
 
 ## How the Annotation Processor Works
@@ -73,10 +73,10 @@ This happens during Maven's compile phase, so there's no runtime overhead or ref
 
 ## Adding Your Own Examples
 
-1. Create a new Java class in `src/main/java/io/github/dotbrains/hermes/examples/`
+1. Create a new Java class in `src/main/java/io/github/smeltery/hermes/examples/`
 2. Add a `main()` method
 3. Use Hermes logging features
-4. Run with: `mvn exec:java -Dexec.mainClass="io.github.dotbrains.hermes.examples.YourClass" -pl hermes-examples`
+4. Run with: `mvn exec:java -Dexec.mainClass="io.github.smeltery.hermes.examples.YourClass" -pl hermes-examples`
 
 ## Dependencies
 

@@ -5,7 +5,7 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.dotbrains</groupId>
+    <groupId>io.github.smeltery</groupId>
     <artifactId>hermes-parent</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -73,17 +73,17 @@
         <dependencies>
             <!-- Internal modules -->
             <dependency>
-                <groupId>io.github.dotbrains</groupId>
+                <groupId>io.github.smeltery</groupId>
                 <artifactId>hermes-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.dotbrains</groupId>
+                <groupId>io.github.smeltery</groupId>
                 <artifactId>hermes-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.dotbrains</groupId>
+                <groupId>io.github.smeltery</groupId>
                 <artifactId>hermes-processor</artifactId>
                 <version>${project.version}</version>
             </dependency>

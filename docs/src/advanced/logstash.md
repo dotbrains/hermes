@@ -121,7 +121,7 @@ Hermes sends events in Logstash JSON format:
   "@timestamp": "2024-01-10T10:30:45.123Z",
   "@version": "1",
   "message": "User logged in successfully",
-  "logger_name": "io.github.dotbrains.AuthService",
+  "logger_name": "io.github.smeltery.AuthService",
   "level": "INFO",
   "level_value": 20000,
   "thread_name": "http-nio-8080-exec-1",
@@ -143,13 +143,13 @@ Hermes sends events in Logstash JSON format:
 {
   "@timestamp": "2024-01-10T10:30:45.123Z",
   "message": "Failed to process payment",
-  "logger_name": "io.github.dotbrains.PaymentService",
+  "logger_name": "io.github.smeltery.PaymentService",
   "level": "ERROR",
   "level_value": 40000,
   "exception": {
     "class": "java.lang.IllegalStateException",
     "message": "Payment gateway timeout",
-    "stack_trace": "java.lang.IllegalStateException: Payment gateway timeout\n\tat io.github.dotbrains.PaymentService.process..."
+    "stack_trace": "java.lang.IllegalStateException: Payment gateway timeout\n\tat io.github.smeltery.PaymentService.process..."
   },
   "application": "order-service",
   "environment": "production"

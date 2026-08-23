@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.github.dotbrains</groupId>
+        <groupId>io.github.smeltery</groupId>
         <artifactId>hermes-parent</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -17,15 +17,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.dotbrains</groupId>
+            <groupId>io.github.smeltery</groupId>
             <artifactId>hermes-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.dotbrains</groupId>
+            <groupId>io.github.smeltery</groupId>
             <artifactId>hermes-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.dotbrains</groupId>
+            <groupId>io.github.smeltery</groupId>
             <artifactId>hermes-processor</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -39,7 +39,7 @@
                 <configuration>
                     <annotationProcessorPaths>
                         <path>
-                            <groupId>io.github.dotbrains</groupId>
+                            <groupId>io.github.smeltery</groupId>
                             <artifactId>hermes-processor</artifactId>
                             <version>${project.version}</version>
                         </path>
