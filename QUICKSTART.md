@@ -210,4 +210,4 @@ Check that `hermes-processor` is configured in `annotationProcessorPaths`.
 
 - 📖 [Full Documentation](README.md)
 - 💡 [Examples](hermes-examples/)
-- 🐛 [Report Issues](https://github.com/dotbrains/hermes/issues)
+- 🐛 [Report Issues](https://github.com/smeltery/hermes/issues)

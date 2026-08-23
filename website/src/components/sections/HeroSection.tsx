@@ -34,7 +34,7 @@ export function HeroSection({ onLearnMore }: HeroSectionProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <a
-              href="https://dotbrains.github.io/hermes"
+              href="https://smeltery.github.io/hermes"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-hermes-blue to-hermes-purple hover:from-hermes-purple hover:to-hermes-cyan text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg shadow-hermes-blue/30 transition-all"
@@ -43,7 +43,7 @@ export function HeroSection({ onLearnMore }: HeroSectionProps) {
               Read the Docs
             </a>
             <a
-              href="https://github.com/dotbrains/hermes"
+              href="https://github.com/smeltery/hermes"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-dark-gray hover:bg-dark-slate text-cream px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg border border-hermes-blue hover:border-hermes-purple transition-all"

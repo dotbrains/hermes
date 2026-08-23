@@ -135,10 +135,10 @@ The website is a single-page marketing site with the following sections:
 
 The website links to:
 
-- **GitHub Repository**: https://github.com/dotbrains/hermes
-- **GitHub Issues**: https://github.com/dotbrains/hermes/issues
-- **GitHub Discussions**: https://github.com/dotbrains/hermes/discussions
-- **Documentation**: https://dotbrains.github.io/hermes
+- **GitHub Repository**: https://github.com/smeltery/hermes
+- **GitHub Issues**: https://github.com/smeltery/hermes/issues
+- **GitHub Discussions**: https://github.com/smeltery/hermes/discussions
+- **Documentation**: https://smeltery.github.io/hermes
 
 ## 🎨 Color Palette
 

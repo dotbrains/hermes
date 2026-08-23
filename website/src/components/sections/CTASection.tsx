@@ -14,7 +14,7 @@ export function CTASection() {
         </p>
         <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
           <a
-            href="https://github.com/dotbrains/hermes"
+            href="https://github.com/smeltery/hermes"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-dark-gray/50 border border-hermes-blue/30 hover:border-hermes-blue rounded-xl p-6 sm:p-8 transition-all group hover:shadow-lg hover:shadow-hermes-blue/20"
@@ -26,7 +26,7 @@ export function CTASection() {
             <p className="text-cream/60 text-xs sm:text-sm">Star the repo, fork it, and contribute</p>
           </a>
           <a
-            href="https://dotbrains.github.io/hermes"
+            href="https://smeltery.github.io/hermes"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-dark-gray/50 border border-hermes-purple/30 hover:border-hermes-purple rounded-xl p-6 sm:p-8 transition-all group hover:shadow-lg hover:shadow-hermes-purple/20"
@@ -38,7 +38,7 @@ export function CTASection() {
             <p className="text-cream/60 text-xs sm:text-sm">Complete guides and API reference</p>
           </a>
           <a
-            href="https://github.com/dotbrains/hermes/discussions"
+            href="https://github.com/smeltery/hermes/discussions"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-dark-gray/50 border border-hermes-cyan/30 hover:border-hermes-cyan rounded-xl p-6 sm:p-8 transition-all group hover:shadow-lg hover:shadow-hermes-cyan/20"

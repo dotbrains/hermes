@@ -49,7 +49,7 @@ export function MarketingNav({ transparent = false }: MarketingNavProps) {
             Use Cases
           </a>
           <a
-            href="https://dotbrains.github.io/hermes"
+            href="https://smeltery.github.io/hermes"
             className="text-cream/80 hover:text-cream transition-colors text-sm font-medium inline-flex items-center gap-1.5"
             target="_blank"
             rel="noopener noreferrer"
@@ -59,7 +59,7 @@ export function MarketingNav({ transparent = false }: MarketingNavProps) {
           </a>
           <div className="flex items-center gap-3 ml-2">
             <a
-              href="https://github.com/dotbrains/hermes"
+              href="https://github.com/smeltery/hermes"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-dark-gray hover:bg-dark-slate border border-hermes-blue text-cream rounded-lg transition-colors text-sm font-medium"
@@ -113,7 +113,7 @@ export function MarketingNav({ transparent = false }: MarketingNavProps) {
               Use Cases
             </a>
             <a
-              href="https://dotbrains.github.io/hermes"
+              href="https://smeltery.github.io/hermes"
               className="block text-cream/80 hover:text-cream transition-colors text-base font-medium py-2 inline-flex items-center gap-2"
               target="_blank"
               rel="noopener noreferrer"
@@ -123,7 +123,7 @@ export function MarketingNav({ transparent = false }: MarketingNavProps) {
             </a>
             <div className="pt-4 space-y-3 border-t border-hermes-blue/20">
               <a
-                href="https://github.com/dotbrains/hermes"
+                href="https://github.com/smeltery/hermes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-4 py-3 bg-dark-gray hover:bg-dark-slate border border-hermes-blue text-cream rounded-lg transition-colors text-sm font-medium w-full"
@@ -166,7 +166,7 @@ export function MarketingFooter() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/dotbrains/hermes"
+                href="https://github.com/smeltery/hermes"
                 className="text-cream/60 hover:text-cream transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -221,19 +221,19 @@ export function MarketingFooter() {
             <h4 className="text-cream font-semibold mb-4 text-sm uppercase tracking-wider">Resources</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://dotbrains.github.io/hermes" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://smeltery.github.io/hermes" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Documentation
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://dotbrains.github.io/hermes/architecture/overview" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://smeltery.github.io/hermes/architecture/overview" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Architecture
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/dotbrains/hermes/tree/master/hermes-examples" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/smeltery/hermes/tree/master/hermes-examples" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Examples
                   <ExternalLink className="w-3 h-3" />
                 </a>
@@ -244,19 +244,19 @@ export function MarketingFooter() {
             <h4 className="text-cream font-semibold mb-4 text-sm uppercase tracking-wider">Community</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://github.com/dotbrains/hermes" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/smeltery/hermes" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   GitHub Repository
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/dotbrains/hermes/issues" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/smeltery/hermes/issues" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Report Issues
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/dotbrains/hermes/discussions" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/smeltery/hermes/discussions" className="text-cream/70 hover:text-cream text-sm transition-colors inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   Discussions
                   <ExternalLink className="w-3 h-3" />
                 </a>

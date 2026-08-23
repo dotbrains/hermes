@@ -106,7 +106,7 @@ This directory contains CI/CD workflows for the Hermes logging library.
 **Prerequisites:**
 - Enable GitHub Pages in repository settings
 - Set Pages source to "GitHub Actions"
-- Documentation will be available at: `https://dotbrains.github.io/hermes`
+- Documentation will be available at: `https://smeltery.github.io/hermes`
 
 **Usage:**
 1. Make changes to files in `docs/` directory
@@ -178,10 +178,10 @@ git push origin v1.0.0
 Add these to your README.md to show workflow status:
 
 ```markdown
-![CI Build & Test](https://github.com/dotbrains/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
-![Code Quality](https://github.com/dotbrains/hermes/workflows/Code%20Quality/badge.svg)
-![Annotation Processor](https://github.com/dotbrains/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
-![Deploy Documentation](https://github.com/dotbrains/hermes/workflows/Deploy%20Documentation/badge.svg)
+![CI Build & Test](https://github.com/smeltery/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
+![Code Quality](https://github.com/smeltery/hermes/workflows/Code%20Quality/badge.svg)
+![Annotation Processor](https://github.com/smeltery/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
+![Deploy Documentation](https://github.com/smeltery/hermes/workflows/Deploy%20Documentation/badge.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.dotbrains/hermes-parent.svg?label=Maven%20Central)
 ```
 

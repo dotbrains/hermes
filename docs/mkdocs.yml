@@ -1,10 +1,10 @@
 site_name: Hermes Documentation
 site_description: High-performance logging library for Java with excellent developer experience
-site_author: dotbrains
-site_url: https://dotbrains.github.io/hermes
+site_author: smeltery
+site_url: https://smeltery.github.io/hermes
 
-repo_name: dotbrains/hermes
-repo_url: https://github.com/dotbrains/hermes
+repo_name: smeltery/hermes
+repo_url: https://github.com/smeltery/hermes
 edit_uri: edit/master/docs/src/
 
 theme:
@@ -67,7 +67,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/dotbrains/hermes
+      link: https://github.com/smeltery/hermes
   version:
     provider: mike
 

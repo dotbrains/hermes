@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hermes - Zero-Boilerplate Java Logging Library',
     description: 'High-performance Java 17+ logging library with compile-time annotation processing, async logging via LMAX Disruptor, and comprehensive Spring Boot integration',
-    url: 'https://hermes.dotbrains.io',
+    url: 'https://hermes.smeltery.io',
     siteName: 'Hermes',
     images: [
       {

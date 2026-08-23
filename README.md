@@ -6,9 +6,9 @@
 <img src="website/public/og-image.svg" alt="Hermes Logo" width="600" />
 
 
-![CI Build & Test](https://github.com/dotbrains/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
-![Code Quality](https://github.com/dotbrains/hermes/workflows/Code%20Quality/badge.svg)
-![Annotation Processor](https://github.com/dotbrains/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
+![CI Build & Test](https://github.com/smeltery/hermes/workflows/CI%20Build%20%26%20Test/badge.svg)
+![Code Quality](https://github.com/smeltery/hermes/workflows/Code%20Quality/badge.svg)
+![Annotation Processor](https://github.com/smeltery/hermes/workflows/Annotation%20Processor%20Validation/badge.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.dotbrains/hermes-parent.svg?label=Maven%20Central)
 
 ![Java](https://img.shields.io/badge/-Java%2017-007396?style=flat-square&logo=openjdk&logoColor=white)
